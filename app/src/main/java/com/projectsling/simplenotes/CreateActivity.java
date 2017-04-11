@@ -15,6 +15,7 @@ import org.json.JSONObject;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Calendar;
 import java.util.Locale;
 
@@ -53,6 +54,7 @@ public class CreateActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 writeNote();
+                CreateActivity.this.finish();
             }
         });
     }
@@ -64,9 +66,9 @@ public class CreateActivity extends AppCompatActivity {
         Calendar now = Calendar.getInstance();
         String creationDate = createDateString(now);
 
+        //For the id counter
         SharedPreferences pref = getPreferences(MODE_PRIVATE);
         int currentId = pref.getInt(NOTE_ID, -1);
-
 
         Log.v(TAG, noteTitle);
         Log.v(TAG, noteBody);
@@ -74,7 +76,7 @@ public class CreateActivity extends AppCompatActivity {
         Log.v(TAG, ""+currentId);
 
         //Handles starting note id and note file creation
-        FileOutputStream file = null;
+        PrintWriter file = null;
         if (currentId == -1) {
             SharedPreferences.Editor editor = pref.edit();
             editor.putInt(NOTE_ID, 0);
@@ -95,7 +97,7 @@ public class CreateActivity extends AppCompatActivity {
             }*/
         }
         try {
-            file = openFileOutput(getString(R.string.note_file), MODE_APPEND);
+            file = new PrintWriter(openFileOutput(getString(R.string.note_file), MODE_APPEND));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -112,14 +114,11 @@ public class CreateActivity extends AppCompatActivity {
                     .putInt(NOTE_ID, currentId+1)
                     .apply();
 
-            file.write(note.toString().getBytes());
+            file.println(note.toString());
             file.close();
         }
         catch (JSONException e) {
             Log.e(TAG, "JSON error writing note");
-        }
-        catch (IOException e) {
-            Log.e(TAG, "Error writing to note file");
         }
 
 
