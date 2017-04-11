@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Simple Notes</string>
+
+    <!--MainActivity-->
+    <string name="noteCreate">Add new note</string>
+
+    <!--CreateActivity-->
+    <string name="title">Title: </string>
+    <string name="body">Note</string>
+    <string name="cancel">Cancel</string>
+    <string name="create">Create</string>
+    <string name="note_file">notes</string>
+</resources>
