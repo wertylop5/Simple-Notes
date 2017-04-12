@@ -16,12 +16,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     private Button mCreateButton;
     private ListView mNoteList;
+    private List<JSONObject> mNotes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mNoteList = (ListView) findViewById(R.id.noteList);
-        //mNoteList.setAdapter(new NoteAdapter());
+        mNoteList.setAdapter(new NoteAdapter(this, mNotes));
     }
 
     @Override
