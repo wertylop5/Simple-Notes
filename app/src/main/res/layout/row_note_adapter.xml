@@ -6,10 +6,14 @@
     <TextView
         android:id="@+id/noteTitle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="title"
+        android:textSize="25sp"/>
 
     <TextView
         android:id="@+id/noteBody"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="body body body"
+        android:textSize="14sp"/>
 </LinearLayout>

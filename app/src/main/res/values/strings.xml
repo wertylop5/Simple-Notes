@@ -10,4 +10,11 @@
     <string name="cancel">Cancel</string>
     <string name="create">Create</string>
     <string name="note_file">notes</string>
+
+    <!--JSON note stuff-->
+    <string name="note_id">id</string>
+    <string name="note_title">title</string>
+    <string name="note_body">body</string>
+    <string name="note_created">created</string>
+    <string name="note_edited">last_edit</string>
 </resources>
