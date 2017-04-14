@@ -3,6 +3,7 @@
 
     <!--MainActivity-->
     <string name="noteCreate">Add new note</string>
+    <string name="intent_note_list_tag">intentNotes</string>
 
     <!--CreateActivity-->
     <string name="title">Title: </string>
